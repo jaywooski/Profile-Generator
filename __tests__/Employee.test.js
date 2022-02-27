@@ -3,7 +3,7 @@ const Employee = require("../lib/Employee");
 test('create new Employee object', () => {
     const employee = new Employee();
 
-    expect(employee).toEqual({name:"", id:"", email:"", type:""});
+    expect(employee).toEqual({name:"", id:"", email:"", employeeType:""});
 })
 
 test('gets employee name value', () => {
@@ -26,6 +26,6 @@ test('gets employee email', () => {
 
 test('gets employee Role', () => {
     const employee = new Employee();
-    
+
     expect(employee.getRole()).toEqual(employee.employeeType);
 });

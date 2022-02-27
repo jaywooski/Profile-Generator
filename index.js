@@ -1,6 +1,10 @@
 const inquirer = require('inquirer');
 const generatePage = require('./src/createEmployeePage');
 const fs = require('fs');
+const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
 
 const employees = [];
@@ -18,6 +22,23 @@ function writeToFile(fileName, data) {
             });
         });
     });
+}
+
+function filterEmployeeType(type, data) {
+    switch (type) {
+        case 'manager':
+            var manager = new Manager(data);
+            return manager
+        case 'engineer':
+            var engineer = new Engineer(data);
+            return engineer;
+        case 'intern':
+            var intern = new Intern(data);
+            return intern;
+        default:
+            var employee = new Employee(data)
+            return employee;
+    } 
 }
 
 const init = function() {
@@ -115,12 +136,13 @@ const runProgram = function() {
     
     init()
         .then(employeeData => {
-            var employee = new Employee();
-            employee = employeeData;
-            employees.push(employee);
+            var type = employeeData.employeeType;
+            
+            
+            employees.push(filterEmployeeType(type, employeeData));
+            
             console.log(employees);
 
-            
 
             return inquirer.prompt(
                 {
@@ -134,12 +156,13 @@ const runProgram = function() {
             if(employeeConfirm.confirmNewEmployee){
                 runProgram();
             }
-        //     console.log(employees);
-        //     
-        //     new addition below
-        //     employees.forEach(employee => { })
-        // 
-        //     return generatePage(employees);
+
+            return generatePage(employees);
+        })
+        .then(generatedContent => {
+
+            writeToFile('/dist/index.html', generatedContent);
+
         })
         .catch(err => {
             console.log(err);

@@ -1,31 +1,20 @@
-const Employee = require("../lib/Employee");
+const Engineer = require("../lib/Engineer");
 
-test('create new Employee object', () => {
-    const employee = new Employee();
+test('create new Engineer object', () => {
+    const engineer = new Engineer();
 
-    expect(employee).toEqual({name:"", id:"", email:"", type:""});
+    expect(engineer).toEqual({name:"", id:"", email:"", employeeType:"", github:""});
 })
 
-test('gets employee name value', () => {
-    const employee = new Employee();
+test("gets engineer's Github", () => {
+    const engineer = new Engineer();
 
-    expect(employee.getName()).toEqual(employee.name);
+    expect(engineer.getGithub()).toEqual(engineer.github);
 })
 
-test('gets employee ID number', () => {
-    const employee = new Employee();
+test('gets engineer role', () => {
+    const engineer = new Engineer();
 
-    expect(employee.getId()).toEqual(employee.id);
+    expect(engineer.getRole()).toEqual('Engineer');
 })
 
-test('gets employee email', () => {
-    const employee = new Employee();
-
-    expect(employee.getEmail()).toEqual(employee.email);
-})
-
-test('gets employee Role', () => {
-    const employee = new Employee();
-    
-    expect(employee.getRole()).toEqual(employee.employeeType);
-});

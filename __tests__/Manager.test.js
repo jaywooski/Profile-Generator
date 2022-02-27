@@ -1,31 +1,19 @@
-const Employee = require("../lib/Employee");
+const Manager = require("../lib/Manager");
 
-test('create new Employee object', () => {
-    const employee = new Employee();
+test('create new Manager object', () => {
+    const manager = new Manager();
 
-    expect(employee).toEqual({name:"", id:"", email:"", type:""});
+    expect(manager).toEqual({name:"", id:"", email:"", employeeType:"", officeNumber:""});
 })
 
-test('gets employee name value', () => {
-    const employee = new Employee();
+test("gets Manager's office number", () => {
+    const manager = new Manager();
 
-    expect(employee.getName()).toEqual(employee.name);
+    expect(manager.getOfficeNumber()).toEqual(manager.officeNumber);
 })
 
-test('gets employee ID number', () => {
-    const employee = new Employee();
+test('gets manager role', () => {
+    const manager = new Manager();
 
-    expect(employee.getId()).toEqual(employee.id);
+    expect(manager.getRole()).toEqual('Manager');
 })
-
-test('gets employee email', () => {
-    const employee = new Employee();
-
-    expect(employee.getEmail()).toEqual(employee.email);
-})
-
-test('gets employee Role', () => {
-    const employee = new Employee();
-    
-    expect(employee.getRole()).toEqual(employee.employeeType);
-});
