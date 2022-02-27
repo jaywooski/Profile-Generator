@@ -8,15 +8,15 @@ const generateCard = function(array) {
         <!-- card#${i+1} -->
         <div class="shadow-md my-12 text-white rounded-lg">
             <div class="bg-blue-700 rounded-t-lg">
-                <ul class="flex-col justify-around">
-                    <li class="p-2 text-xl">${array[i].employeeName}</li>
-                    <li class="p-2 text-lg">${array[i].employeeType}</li>
+                <ul class="flex-col text-center justify-around">
+                    <li class="p-2 text-xl capitalize">${array[i].employeeName}</li>
+                    <li class="p-2 text-lg capitalize">${array[i].employeeType}</li>
                 </ul>
             </div>
             <div>
                 <ul class="flex-col text-sm text-black p-4 ">
-                    <li class="border p-2">ID:${i + 1}</li>
-                    <li class="border p-2">Email:<a href='mailto:${array[i].employeeEmail}' class='px-2'>${array[i].employeeEmail}</a></li>
+                    <li class="border p-2">ID:  ${i + 1}</li>
+                    <li class="border p-2">Email:<a href='mailto:${array[i].employeeEmail}' class='px-2 text-blue-600 underline'>${array[i].employeeEmail}</a></li>
                     ${generateThirdDetail(array[i])}
                 </ul>
             </div>
@@ -33,11 +33,11 @@ const generateThirdDetail = function(obj) {
         case 'manager':
             return `<li class="border p-2">Office Number: ${obj.phoneNumber}</li>`;
         case 'engineer':
-            return `<li class="border p-2">Github: <a href="www.github.com/${obj.github}">${obj.github}</a></li>`;
+            return `<li class="border p-2">Github: <a href="https://www.github.com/${obj.github}" class = "text-blue-600 underline">  ${obj.github}</a></li>`;
         case 'intern':
-            return `<li class="border p-2">School: ${obj.school}</li>`
+            return `<li class="border p-2 capitalize">School:  ${obj.school}</li>`
         default:
-            return `<li class="border p-2">An ${type}</li>`
+            return `<li class="border p-2 capitalize">An ${type}</li>`
     }
 }
 

@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const generatePage = require('./src/createEmployeePage');
 const fs = require('fs');
 
+
 const employees = [];
 
 function writeToFile(fileName, data) {
@@ -113,8 +114,13 @@ const init = function() {
 const runProgram = function() {
     
     init()
-        .then(data => {
-            employees.push(data);
+        .then(employeeData => {
+            var employee = new Employee();
+            employee = employeeData;
+            employees.push(employee);
+            console.log(employees);
+
+            
 
             return inquirer.prompt(
                 {
@@ -128,12 +134,12 @@ const runProgram = function() {
             if(employeeConfirm.confirmNewEmployee){
                 runProgram();
             }
-            // console.log(employees);
-            return generatePage(employees);
-        })
-        .then(generatedHTMLData => {
-            console.log(generatedHTMLData);
-            writeToFile('/dist/index.html', generatedHTMLData);
+        //     console.log(employees);
+        //     
+        //     new addition below
+        //     employees.forEach(employee => { })
+        // 
+        //     return generatePage(employees);
         })
         .catch(err => {
             console.log(err);
