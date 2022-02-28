@@ -1,20 +1,36 @@
 const Engineer = require("../lib/Engineer");
 
-test('create new Engineer object', () => {
-    const engineer = new Engineer();
+var obj = {
+    name: 'greg',
+    id: '',
+    email: 'greg@yes/net',
+    employeeType: 'engineer',
+    github: 'lernantino'
+  };
 
-    expect(engineer).toEqual({name:"", id:"", email:"", employeeType:"", github:""});
+test('create new Engineer object', (obj) => {
+    const engineer = new Engineer(obj);
+
+    expect(engineer).toEqual(
+        {
+            name:expect.any(String), 
+            id:"", 
+            email:expect.any(String), 
+            employeeType:expect.toBe('engineer'), 
+            github:expect.any(String)
+        }
+    );
 })
 
-test("gets engineer's Github", () => {
-    const engineer = new Engineer();
+test("gets engineer's Github", (obj) => {
+    const engineer = new Engineer(obj);
 
     expect(engineer.getGithub()).toEqual(engineer.github);
 })
 
-test('gets engineer role', () => {
-    const engineer = new Engineer();
+test('gets engineer role', (obj) => {
+    const engineer = new Engineer(obj);
 
-    expect(engineer.getRole()).toEqual('Engineer');
+    expect(engineer.getRole()).toEqual('engineer');
 })
 

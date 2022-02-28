@@ -9,14 +9,14 @@ const generateCard = function(array) {
         <div class="shadow-md my-12 text-white rounded-lg">
             <div class="bg-blue-700 rounded-t-lg">
                 <ul class="flex-col text-center justify-around">
-                    <li class="p-2 text-xl capitalize">${array[i].employeeName}</li>
+                    <li class="p-2 text-xl capitalize">${array[i].name}</li>
                     <li class="p-2 text-lg capitalize">${array[i].employeeType}</li>
                 </ul>
             </div>
             <div>
                 <ul class="flex-col text-sm text-black p-4 ">
                     <li class="border p-2">ID:  ${i + 1}</li>
-                    <li class="border p-2">Email:<a href='mailto:${array[i].employeeEmail}' class='px-2 text-blue-600 underline'>${array[i].employeeEmail}</a></li>
+                    <li class="border p-2">Email:<a href='mailto:${array[i].email}' class='px-2 text-blue-600 underline'>${array[i].email}</a></li>
                     ${generateThirdDetail(array[i])}
                 </ul>
             </div>
@@ -31,9 +31,9 @@ const generateThirdDetail = function(obj) {
     const type = obj.employeeType
     switch(type) {
         case 'manager':
-            return `<li class="border p-2">Office Number: ${obj.phoneNumber}</li>`;
+            return `<li class="border p-2">Office Number: ${obj.officeNumber}</li>`;
         case 'engineer':
-            return `<li class="border p-2">Github: <a href="https://www.github.com/${obj.github}" class = "text-blue-600 underline">  ${obj.github}</a></li>`;
+            return `<li class="border p-2 capitalize">Github: <a href="https://www.github.com/${obj.github}" class = "text-blue-600 underline">  ${obj.github}</a></li>`;
         case 'intern':
             return `<li class="border p-2 capitalize">School:  ${obj.school}</li>`
         default:
