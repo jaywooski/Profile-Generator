@@ -170,16 +170,3 @@ const runProgram = function() {
 }
 
 runProgram();
-// const employees_new = [
-//     {
-//       employeeName: 'John',
-//       employeeEmail: 'jay@dem.com',
-//       employeeType: 'employee'
-//     },
-//     {
-//       employeeName: 'Johnny',
-//       employeeEmail: 'jaywooski@google.co',
-//       employeeType: 'engineer',
-//       github: 'jaywooski'
-//     }
-//   ];

@@ -1,12 +1,13 @@
 const Intern = require("../lib/Intern");
-var obj = {
-    name: 'Joe',
-    id: '',
-    email: 'joe@aol.com',
-    employeeType: 'intern',
-    school: 'MIT'
-  }
-test('create new Intern object', (obj) => {
+
+test('create new Intern object', () => {
+    var obj = {
+        employeeName: 'Joe',
+        id: '',
+        employeeEmail: 'joe@aol.com',
+        employeeType: 'intern',
+        school: 'MIT'
+    }
     const intern = new Intern(obj);
 
     expect(intern).toEqual(
@@ -14,19 +15,33 @@ test('create new Intern object', (obj) => {
             name: expect.any(String), 
             id:'', 
             email: expect.any(String), 
-            employeeType: expect(intern.employeeType).toBe('intern'),
+            employeeType: expect.any(String),
             school: expect.any(String)
         }
     );
 })
 
-test("gets intern's School", (obj) => {
+test("gets intern's School", () => {
+    var obj = {
+        employeeName: 'Joe',
+        id: '',
+        employeeEmail: 'joe@aol.com',
+        employeeType: 'intern',
+        school: 'MIT'
+    }
     const intern = new Intern(obj);
 
-    expect(intern.getSchool()).toEqual(intern.school);
+    expect(intern.getSchool()).toEqual('MIT');
 })
 
-test('gets intern role', (obj) => {
+test('gets intern role', () => {
+    var obj = {
+        employeeName: 'Joe',
+        id: '',
+        employeeEmail: 'joe@aol.com',
+        employeeType: 'intern',
+        school: 'MIT'
+    }
     const intern = new Intern(obj);
 
     expect(intern.getRole()).toEqual('intern');

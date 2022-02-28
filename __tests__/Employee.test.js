@@ -1,17 +1,18 @@
 const Employee = require("../lib/Employee");
-const list = require('../lib/__mocks__/Employee')
 
-// jest.mock('Employee');
-var obj = {
-        name: 'Jay',
+
+
+
+test('create new Employee object', () => {
+    var obj = {
+        employeeName: 'Jay',
         id: '',
-        email: 'john@edc.net',
+        employeeEmail: 'john@edc.net',
         employeeType: 'employee',
     };
-
-test('create new Employee object', (obj) => {
+    console.log(obj);
     const employee = new Employee(obj);
-    
+    console.log(employee);
     
     expect(employee).toEqual(
         {
@@ -24,25 +25,49 @@ test('create new Employee object', (obj) => {
 })
 
 test('gets employee name value', () => {
+    var obj = {
+        employeeName: 'Jay',
+        id: '',
+        employeeEmail: 'john@edc.net',
+        employeeType: 'employee',
+    };
     const employee = new Employee(obj);
 
-    expect(employee.getName()).toEqual(employee.employeeName);
+    expect(employee.getName()).toEqual('Jay');
 })
 
 test('gets employee ID number', () => {
+    var obj = {
+        employeeName: 'Jay',
+        id: '',
+        employeeEmail: 'john@edc.net',
+        employeeType: 'employee',
+    };
     const employee = new Employee(obj);
 
     expect(employee.getId()).toBe('');
 })
 
 test('gets employee email', () => {
+    var obj = {
+        employeeName: 'Jay',
+        id: '',
+        employeeEmail: 'john@edc.net',
+        employeeType: 'employee',
+    };
     const employee = new Employee(obj);
 
-    expect(employee.getEmail()).toEqual(employee.employeeEmail);
+    expect(employee.getEmail()).toEqual('john@edc.net');
 })
 
 test('gets employee Role', () => {
+    var obj = {
+        employeeName: 'Jay',
+        id: '',
+        employeeEmail: 'john@edc.net',
+        employeeType: 'employee',
+    };
     const employee = new Employee(obj);
 
-    expect(employee.getRole()).toEqual(employee.employeeType);
+    expect(employee.getRole()).toEqual('employee');
 });
