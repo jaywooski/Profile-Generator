@@ -10,10 +10,9 @@ test('create new Employee object', () => {
         employeeEmail: 'john@edc.net',
         employeeType: 'employee',
     };
-    console.log(obj);
+  
     const employee = new Employee(obj);
-    console.log(employee);
-    
+        
     expect(employee).toEqual(
         {
             name: expect.any(String), 
